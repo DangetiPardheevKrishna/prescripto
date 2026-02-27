@@ -20,7 +20,9 @@ app.use("/api/user", userRouter);
 app.get("/", (req, res) => {
   res.send("API WORKING");
 });
-
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
 app.listen(PORT, () => {
   console.log("connected");
 });
